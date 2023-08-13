@@ -78,3 +78,32 @@ const lowestPopulation = countriesArray.reduce(
 );
 
 console.log("lowestPopulation: ", lowestPopulation);
+
+
+
+//  now we will create one array which will contain object as key as country name and values as all data of that country 
+
+// const countriesObject=countriesArray.reduce((accumulator,country,index)=>{
+//     const object= country.reduce((acc,curr)=>{
+// if(acc.name!==curr.name){
+//    acc[curr]=curr;
+// }},{});
+//     accumulator[country.name]= object
+//     return accumulator;
+// },{})
+// console.log(countriesObject);
+    
+// const countriesObject = countriesArray.reduce((accumulator, country) => {
+//     accumulator[country.name] = country;
+//     return accumulator;
+//   }, {});
+  
+//   console.log(countriesObject);
+  const countriesObject = countriesArray.reduce((accumulator, country) => {
+    const { name, ...restOfCountry } = country; // Destructure the name property and create a new object without it
+    accumulator[name] = restOfCountry;
+    return accumulator;
+  }, {});
+  
+  console.log(countriesObject);
+  
