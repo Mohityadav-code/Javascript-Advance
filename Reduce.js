@@ -93,15 +93,8 @@ console.log("lowestPopulation: ", lowestPopulation);
 // },{})
 // console.log(countriesObject);
     
-// const countriesObject = countriesArray.reduce((accumulator, country) => {
-//     accumulator[country.name] = country;
-//     return accumulator;
-//   }, {});
-  
-//   console.log(countriesObject);
-  const countriesObject = countriesArray.reduce((accumulator, country) => {
-    const { name, ...restOfCountry } = country; // Destructure the name property and create a new object without it
-    accumulator[name] = restOfCountry;
+const countriesObject = countriesArray.reduce((accumulator, country) => {
+    accumulator[country.name] = country;
     return accumulator;
   }, {});
   
